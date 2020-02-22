@@ -7,11 +7,12 @@ from werkzeug.utils import secure_filename
 
 
 def allowed_file(fn):
-    return "." in fn and \
-            fn.rsplit(".", 1)[1].lower() in app.config['ALLOWED_FILES']
+    return "." in fn and fn.rsplit(".", 1)[1].lower() in app.config["ALLOWED_FILES"]
 
 
-def random_fn(size=app.config["FILENAME_LEN"], chars=string.ascii_lowercase + string.digits):
+def random_fn(
+    size=app.config["FILENAME_LEN"], chars=string.ascii_lowercase + string.digits
+):
     return "".join(random.choice(chars) for _ in range(size))
 
 
@@ -42,7 +43,8 @@ def upload():
     else:
         return "your key is borked"
 
-#@app.route("/<filename>")
-#def serve(filename):
+
+# @app.route("/<filename>")
+# def serve(filename):
 #    print("here!")
 #    return send_from_directory(app.config["UPLOADS_DIR"], filename)

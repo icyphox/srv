@@ -1,5 +1,6 @@
 import os
 
+
 class Config:
     UPLOADS_DIR = "uploads"
     ALLOWED_FILES = {
