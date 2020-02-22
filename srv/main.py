@@ -36,10 +36,9 @@ def upload():
             fext = f.filename.rsplit(".", 1)[1].lower()
             fn = secure_filename(random_fn() + "." + fext)
             f.save(os.path.join(app.config["UPLOADS_DIR"], fn))
-            return f"{app.config[HOST]}" + fn
+            return f"{app.config['HOST']}" + fn
         else:
             return "idk"
 
     else:
         return "your key is borked"
-
