@@ -35,3 +35,4 @@ class Config:
     }
     SECRET_KEY = os.urandom(24)
     FILENAME_LEN = 5
+    HOST = "https://x.icyphox.sh"
