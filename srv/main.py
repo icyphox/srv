@@ -36,15 +36,10 @@ def upload():
             fext = f.filename.rsplit(".", 1)[1].lower()
             fn = secure_filename(random_fn() + "." + fext)
             f.save(os.path.join(app.config["UPLOADS_DIR"], fn))
-            return url_for("serve", filename=fn, _external=True)
+            return f"{app.config[HOST]}" + fn
         else:
             return "idk"
 
     else:
         return "your key is borked"
 
-
-@app.route("/<filename>")
-def serve(filename):
-   print("here!")
-   return send_from_directory(app.config["UPLOADS_DIR"], filename)
