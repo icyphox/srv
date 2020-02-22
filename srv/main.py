@@ -44,7 +44,7 @@ def upload():
         return "your key is borked"
 
 
-# @app.route("/<filename>")
-# def serve(filename):
-#    print("here!")
-#    return send_from_directory(app.config["UPLOADS_DIR"], filename)
+@app.route("/<filename>")
+def serve(filename):
+   print("here!")
+   return send_from_directory(app.config["UPLOADS_DIR"], filename)
